@@ -1,8 +1,4 @@
-import org.jetbrains.compose.desktop.application.dsl.TargetFormat
-import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
-import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpackConfig
 
 plugins {
     alias(libs.plugins.androidLibrary)
@@ -40,9 +36,16 @@ kotlin {
             implementation(libs.androidx.activity.compose)
             implementation(libs.ktor.client.core)
             implementation(libs.kotlinx.coroutines.core)
+
+            implementation("io.insert-koin:koin-android:4.1.0-Beta1")
         }
 
         commonMain.dependencies {
+            implementation(project(":data-network"))
+            implementation("io.insert-koin:koin-core:4.1.0-Beta1")
+            implementation("io.insert-koin:koin-compose:4.1.0-Beta1")
+            //implementation("io.insert-koin:koin-compose-viewmodel:4.1.0-Beta1")
+
             implementation(compose.runtime)
             implementation(compose.foundation)
             implementation(compose.material)
@@ -55,6 +58,24 @@ kotlin {
             implementation(libs.androidx.navigation.compose)
             implementation(libs.kotlinx.serialization.core)
             implementation(libs.kotlinx.serialization.json)
+        }
+        iosMain.dependencies {
+            //implementation("io.insert-koin:koin-core:4.1.0-Beta1")
+
+            //implementation("io.insert-koin:koin-compose:4.1.0-Beta1")
+            //implementation("io.insert-koin:koin-compose-viewmodel:4.1.0-Beta1")
+            implementation("io.insert-koin:koin-compose:4.1.0-Beta1")
+
+        }
+
+        iosX64Main.dependencies {
+            implementation("io.insert-koin:koin-core:4.1.0-Beta1")
+        }
+        iosArm64Main.dependencies {
+            implementation("io.insert-koin:koin-core:4.1.0-Beta1")
+        }
+        iosSimulatorArm64Main.dependencies {
+            implementation("io.insert-koin:koin-core:4.1.0-Beta1")
         }
     }
 }

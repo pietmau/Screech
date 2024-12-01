@@ -32,3 +32,4 @@ rootProject.name = "screetch"
 include(":app")
 include(":feature-login")
 include(":data-network")
+include(":common")

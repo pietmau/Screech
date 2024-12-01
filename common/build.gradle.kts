@@ -4,7 +4,6 @@ import sh.christian.ozone.api.generator.ApiReturnType
 plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.kotlinMultiplatform)
-    id("sh.christian.ozone.generator")
 }
 
 kotlin {
@@ -31,17 +30,12 @@ kotlin {
 
     sourceSets {
         commonMain.dependencies {
-            implementation(libs.ktor.client.core)
-            implementation(libs.kotlinx.coroutines.core)
         }
 
         iosMain.dependencies {
-            implementation(libs.ktor.client.darwin)
         }
 
         androidMain.dependencies {
-            implementation(libs.ktor.client.okhttp)
-            implementation(libs.kotlinx.coroutines.android)
         }
     }
 }
@@ -55,21 +49,5 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
-    }
-}
-
-dependencies{
-    lexicons("sh.christian.ozone:lexicons:0.3.0")
-}
-
-lexicons {
-    namespace.set("org.screech")
-
-    generateApi("ScreechClient") {
-        packageName.set("org.screech")
-        withKtorImplementation("ScreechClientImpl")
-        returnType.set(ApiReturnType.Result)
-        suspending.set(true)
-        exclude("""app\.bsky\.unspecced\..*""")
     }
 }

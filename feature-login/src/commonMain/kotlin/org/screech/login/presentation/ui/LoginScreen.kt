@@ -6,7 +6,7 @@ import org.screech.login.presentation.LoginViewModel
 
 @Composable
 fun LoginScreen(
-    viewModel: LoginViewModel = viewModel { LoginViewModel() }
+    viewModel: LoginViewModel = koinViewModel()
 ) {
 
 }
