@@ -44,7 +44,8 @@ kotlin {
             implementation(project(":data-network"))
             implementation("io.insert-koin:koin-core:4.1.0-Beta1")
             implementation("io.insert-koin:koin-compose:4.1.0-Beta1")
-            //implementation("io.insert-koin:koin-compose-viewmodel:4.1.0-Beta1")
+            implementation("io.insert-koin:koin-compose-viewmodel:4.1.0-Beta1")
+            implementation("io.insert-koin:koin-compose-viewmodel-navigation:4.1.0-Beta1")
 
             implementation(compose.runtime)
             implementation(compose.foundation)
@@ -59,23 +60,9 @@ kotlin {
             implementation(libs.kotlinx.serialization.core)
             implementation(libs.kotlinx.serialization.json)
         }
+
         iosMain.dependencies {
-            //implementation("io.insert-koin:koin-core:4.1.0-Beta1")
-
-            //implementation("io.insert-koin:koin-compose:4.1.0-Beta1")
-            //implementation("io.insert-koin:koin-compose-viewmodel:4.1.0-Beta1")
             implementation("io.insert-koin:koin-compose:4.1.0-Beta1")
-
-        }
-
-        iosX64Main.dependencies {
-            implementation("io.insert-koin:koin-core:4.1.0-Beta1")
-        }
-        iosArm64Main.dependencies {
-            implementation("io.insert-koin:koin-core:4.1.0-Beta1")
-        }
-        iosSimulatorArm64Main.dependencies {
-            implementation("io.insert-koin:koin-core:4.1.0-Beta1")
         }
     }
 }

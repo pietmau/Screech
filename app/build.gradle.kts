@@ -38,6 +38,7 @@ kotlin {
 
         commonMain.dependencies {
             api("sh.christian.ozone:bluesky:0.3.0")
+            implementation("io.insert-koin:koin-core:4.1.0-Beta1")
 
             implementation(projects.featureLogin)
             implementation(compose.runtime)
