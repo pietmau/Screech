@@ -7,4 +7,6 @@ plugins {
     alias(libs.plugins.composeCompiler) apply false
     alias(libs.plugins.kotlinMultiplatform) apply false
     alias(libs.plugins.kotlinSerialization) apply false
+    id("sh.christian.ozone.generator") version "0.3.0" apply false // TODO
+    id("com.google.protobuf") version "0.9.4" apply false
 }
