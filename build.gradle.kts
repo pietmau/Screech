@@ -9,4 +9,5 @@ plugins {
     alias(libs.plugins.kotlinSerialization) apply false
     id("sh.christian.ozone.generator") version "0.3.0" apply false // TODO
     id("com.google.protobuf") version "0.9.4" apply false
+    id ("com.google.devtools.ksp") version "2.1.0-1.0.29"
 }

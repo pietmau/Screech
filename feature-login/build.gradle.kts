@@ -5,6 +5,7 @@ plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
+    id("com.google.devtools.ksp")
 }
 
 kotlin {
@@ -46,6 +47,9 @@ kotlin {
             implementation("io.insert-koin:koin-compose:4.1.0-Beta1")
             implementation("io.insert-koin:koin-compose-viewmodel:4.1.0-Beta1")
             implementation("io.insert-koin:koin-compose-viewmodel-navigation:4.1.0-Beta1")
+            // Koin Annotations
+            api("io.insert-koin:koin-annotations:2.0.0-Beta1")
+
 
             implementation(compose.runtime)
             implementation(compose.foundation)
@@ -64,6 +68,11 @@ kotlin {
         iosMain.dependencies {
             implementation("io.insert-koin:koin-compose:4.1.0-Beta1")
         }
+    }
+
+    // KSP Common sourceSet
+    sourceSets.named("commonMain").configure {
+        kotlin.srcDir("build/generated/ksp/metadata/commonMain/kotlin")
     }
 }
 
