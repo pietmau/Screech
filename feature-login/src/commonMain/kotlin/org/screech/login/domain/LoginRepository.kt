@@ -1,4 +1,4 @@
-package org.screech.data.network
+package org.screech.login.domain
 
 import com.atproto.server.CreateSessionResponse
 
