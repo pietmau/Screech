@@ -1,7 +1,6 @@
-package org.screech.login.presentation.domain
+package org.screech.login.domain
 
 import com.atproto.server.CreateSessionResponse
-import org.screech.data.network.LoginRepository
 
 class LoginUseCase(private val loginRepository: LoginRepository) {
 

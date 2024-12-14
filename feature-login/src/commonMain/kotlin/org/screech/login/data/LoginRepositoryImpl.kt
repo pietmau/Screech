@@ -1,8 +1,9 @@
-package org.screech.data.network
+package org.screech.login.data
 
 import com.atproto.server.CreateSessionRequest
 import com.atproto.server.CreateSessionResponse
 import org.screech.ScreechClient
+import org.screech.login.domain.LoginRepository
 
 class LoginRepositoryImpl(private val client: ScreechClient) : LoginRepository {
 
