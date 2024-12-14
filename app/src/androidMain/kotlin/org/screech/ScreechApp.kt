@@ -15,7 +15,7 @@ class ScreechApp : Application() {
                 module {
                     single { LoginViewModel() }
                 },
-                LoginModule().module
+                LoginModule()
                 )
         }
     }
