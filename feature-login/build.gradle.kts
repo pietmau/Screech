@@ -1,4 +1,5 @@
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask
 
 plugins {
     alias(libs.plugins.androidLibrary)
@@ -85,5 +86,20 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    add("kspCommonMainMetadata", "io.insert-koin:koin-ksp-compiler:2.0.0-Beta2")
+    add("kspAndroid", "io.insert-koin:koin-ksp-compiler:2.0.0-Beta2")
+    add("kspIosX64", "io.insert-koin:koin-ksp-compiler:2.0.0-Beta2")
+    add("kspIosArm64", "io.insert-koin:koin-core:2.0.0-Beta2")
+    add("kspIosSimulatorArm64", "io.insert-koin:koin-core:2.0.0-Beta2")
+}
+
+// Trigger Common Metadata Generation from Native tasks
+project.tasks.withType(KotlinCompilationTask::class.java).configureEach {
+    if (name != "kspCommonMainKotlinMetadata") {
+        dependsOn("kspCommonMainKotlinMetadata")
     }
 }
